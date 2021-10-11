@@ -7,22 +7,19 @@ class BuilderWebSite extends Builder implements IBuilderWebSite
 {
     private ProductWebSite $product;
 
-    public function __construction(ProductWebSite $obj)
+    public function __construct()
     {
-        $this->product = $obj;
+        $this->product = new ProductWebSite();
     }
 
     public function createTitle():void
     {
-            #$this->product->parts = ["title" => "<title>WebSite</title>"];
-        $this->product->parts = ["title"=>"<title>WebSite</title>","head"=>0,"body"=>0];
+        $this->product->parts["title"]= "<title>WebSite</title>";
     }
 
     public function createHead():void
     {
-        $this->product->parts["head"] = "<meta charset=\"UTF-8\"> <meta name=\"viewport\"content=\"width=device-width,
-                           user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\"> <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">";
-
+        $this->product->parts["head"] = "<meta charset=\"UTF-8\"> <meta name=\"viewport\"content=\"width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\"> <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">";
     }
 
     public function createBody():void
@@ -30,18 +27,10 @@ class BuilderWebSite extends Builder implements IBuilderWebSite
         $this->product->parts["body"] = "<body><h1>WebSite</h1></body>";
     }
 
-    public function reset():void
+
+    public function getProduct():ProductWebSite
     {
-        $this->product = new ProductWebSite();
-    }
-
-    public function getProduct()
-    {
-        $result_product = $this->product;
-        $this->reset();
-
-        return $result_product;
-
+        return $this->product;
     }
 
 }

@@ -10,8 +10,6 @@ class BuilderWebChat extends Builder implements IBuilderWebsite
     public function createTitle():void
     {
         $this->product->parts["title"] = "<title>WebChat</title>";
-        $this->product->parts =
-
     }
 
     public function createHead():void
@@ -26,18 +24,9 @@ class BuilderWebChat extends Builder implements IBuilderWebsite
         $this->product->parts["body"] = "<body><h1>WebChat</h1></body>";
     }
 
-    public function reset():void
+    public function getProduct():ProductWebSite
     {
-        $this->product = new ProductWebSite();
-    }
-
-    public function getProduct()
-    {
-        $result_product = $this->product;
-        $this->reset();
-
-        return $result_product;
-
+        return $this->product;
     }
 
 }

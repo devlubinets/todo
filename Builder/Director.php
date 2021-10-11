@@ -2,11 +2,11 @@
 
 class Director
 {
-    public  $builder;
+    public IBuilderWebsite  $builder;
 
-    public function __constructor()
+    public function __construct(IBuilderWebsite $obj)
     {
-        #$this->setBuilder();
+        $this->setBuilder($obj);
     }
 
     public function setBuilder(IBuilderWebsite $builder)
@@ -24,7 +24,7 @@ class Director
     public function manyMoneyWebSite()
     {
         $this->builder->createTitle();
-        $this->builder->createHeader();
+        $this->builder->createHead();
         $this->builder->createBody();
 
         $this->builder->getProduct();
