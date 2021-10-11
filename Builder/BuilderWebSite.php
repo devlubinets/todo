@@ -14,8 +14,8 @@ class BuilderWebSite extends Builder implements IBuilderWebSite
 
     public function createTitle():void
     {
-            $this->product->parts["title"] = "<title>WebSite</title>";
-
+            #$this->product->parts = ["title" => "<title>WebSite</title>"];
+        $this->product->parts = ["title"=>"<title>WebSite</title>","head"=>0,"body"=>0];
     }
 
     public function createHead():void

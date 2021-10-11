@@ -10,6 +10,7 @@ class BuilderWebChat extends Builder implements IBuilderWebsite
     public function createTitle():void
     {
         $this->product->parts["title"] = "<title>WebChat</title>";
+        $this->product->parts =
 
     }
 
