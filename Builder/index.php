@@ -8,7 +8,6 @@ require_once  'Builder.php';
 require_once  'Director.php';
 require_once  'ProductWebSite.php';
 
-error_reporting(E_ALL);
 
 $product = new ProductWebSite();
 $webprogrammer = new BuilderWebSite($product);

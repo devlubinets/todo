@@ -1,10 +1,12 @@
 <?php
 
-class ColorText implements IText
+
+
+class GreyText implements IText
 {
 
     public function print(): string
     {
-        return "Color";
+        return "Grey";
     }
 }

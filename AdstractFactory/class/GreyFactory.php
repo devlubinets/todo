@@ -1,5 +1,6 @@
 <?php
 
+
 class GreyFactory extends AbstractFactory
 {
 
