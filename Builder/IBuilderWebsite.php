@@ -5,5 +5,5 @@ interface IBuilderWebsite
     public function createTitle():void;
     public function createHead():void;
     public function createBody():void;
-    public function getProduct();
+    public function getProduct():ProductWebSite;
 }

@@ -2,8 +2,6 @@
 
 class Builder
 {
-    private ProductWebSite $product;
-
-
+    protected ProductWebSite $product;
 
 }

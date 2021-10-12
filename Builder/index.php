@@ -12,7 +12,6 @@ require_once  'ProductWebSite.php';
 $product = new ProductWebSite();
 $webprogrammer = new BuilderWebSite($product);
 $director = new Director($webprogrammer);
-//#$director->setBuilder($webprogrammer);
 $director->manyMoneyWebSite();
 $product = $webprogrammer->getProduct();
 

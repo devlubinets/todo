@@ -15,7 +15,7 @@ class ProductWebSite
        $head = $this->parts["head"];
        $body = $this->parts["body"];
 
-        return  "<!doctype html> <html lang=\"en\"> <head> $head <title>$title</title></head>$body</html>";
+        return  "<!doctype html> <html lang=\"en\"> <head> $head $title</head>$body</html>";
 
     }
 

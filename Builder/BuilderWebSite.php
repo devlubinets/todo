@@ -5,7 +5,6 @@ require_once 'IBuilderWebsite.php';
 
 class BuilderWebSite extends Builder implements IBuilderWebSite
 {
-    private ProductWebSite $product;
 
     public function __construct()
     {
