@@ -1,0 +1,31 @@
+/*.*/
+/*{*/
+/*    width: 500px;*/
+/*    height: 1200px;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    width: 6em;*/
+/*}*/
+
+html {
+    width: 50%;
+    max-width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+}
+
+.cls1
+{
+    width: 80%;
+    border: dashed red;
+    background: #fc0; /* Цвет фона */
+    padding: 5px; /* Поля */
+    -moz-box-sizing: border-box; /* Для Firefox */
+    -webkit-box-sizing: border-box; /* Для Safari и Chrome */
+    box-sizing: border-box; /* Для IE и Opera */
+}
+
+/*html {*/
+/*    display: block;*/
+/*}*/
