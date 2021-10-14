@@ -19,7 +19,7 @@ html {
 {
     width: 80%;
     border: dashed red;
-    background: #fc0; /* Цвет фона */
+    background: chartreuse; /* Цвет фона */
     padding: 5px; /* Поля */
     -moz-box-sizing: border-box; /* Для Firefox */
     -webkit-box-sizing: border-box; /* Для Safari и Chrome */
