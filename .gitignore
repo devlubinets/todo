@@ -1,0 +1,29 @@
+##########
+#IDE FILE#
+##########
+
+
+.idea
+
+amanda_media.iml
+php.xml
+vcs.xml
+workspace.xml
+modules.xml
+
+
+.inspectionProfiles
+Project_Default.xml
+
+
+###########################
+#in file default gitignore#
+###########################
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
