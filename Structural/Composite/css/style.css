@@ -6,25 +6,8 @@ html {
     margin: auto;
 }
 
-.cls1
-{
+.cls1 {
     width: 80%;
-    border: dashed red 2px;
-    background: chartreuse; /* Цвет фона */
-    padding: 10px; /* Поля */
-    -moz-box-sizing: border-box; /* Для Firefox */
-    -webkit-box-sizing: border-box; /* Для Safari и Chrome */
-    box-sizing: border-box; /* Для IE и Opera */
-}
-
-.cls2
-{
-    width: 80%;
-    border: dashed black 5px;
-    background: #E2FF2B; /* Цвет фона */
-    padding: 5px; /* Поля */
-    -moz-box-sizing: border-box; /* Для Firefox */
-    -webkit-box-sizing: border-box; /* Для Safari и Chrome */
-    box-sizing: border-box; /* Для IE и Opera */
-
+    border: dashed black 2px;
+    background: greenyellow; /* Цвет фона */
 }
