@@ -2,7 +2,6 @@
 
 abstract class AbstractBookItem
 {
-    protected ?AbstractBookItem $parent = null;
     protected array $child = [];
     protected string $name = '';
     protected float $price = -1.0;
@@ -11,40 +10,45 @@ abstract class AbstractBookItem
     {
         $this->name = $name;
         $this->price = $price;
-        $this->setParent($name);
     }
 
     public function add(AbstractBookItem $addObject):void
     {
         $this->child[] = $addObject;
-        $addObject->parent = $addObject;
     }
 
-    public function remove(AbstractBookItem $removeObject):void
+    public function remove(int $numberInArray):void
     {
-        $removeObject->parent = null;
-        unset($removeObject);
+        unset($this->child[$numberInArray]);
     }
 
     public function getName():string
     {
-        return $this->name;
+        return "<br><div class='cls1'> $this->name</div><br>";
     }
 
     public function getListName():array
     {
-        $parent = $this->parent->name;
-        $result = [];
-        foreach ($this->child as $item) {
-            $result[] = "<br><div class='cls1'> $parent ".'->'. $item->getName() . '</div><br>';
-        }
 
+        $result = [];
+
+        if  ($this->hasComposite()) {
+            foreach ($this->child as $item => $value ) {
+                $result[] = "<br><div class='cls1'> $this->name" . '->' . "{$this->child[$item]->name}</div><br>";
+
+                $this->child[$item]->getListName();
+            }  } else {
+            $result[] = $this->getName();
+        }
+        unset($value);
         return $result;
     }
 
-    public function setParent($name):void
-    {
-        $this->parent->name = $name;
-    }
 
+
+
+    public function hasComposite():bool
+    {
+        return (bool)(count($this->child) > 0 );
+    }
 }
