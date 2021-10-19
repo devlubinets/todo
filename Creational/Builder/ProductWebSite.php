@@ -2,7 +2,7 @@
 
 class ProductWebSite
 {
-    private array $parts = ["title"=>'',"head"=>'',"body"=>''];
+    public array $parts = ["title"=>'',"head"=>'',"body"=>''];
 
     public function __construct()
     {

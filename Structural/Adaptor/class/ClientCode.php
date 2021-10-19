@@ -2,7 +2,6 @@
 
 class  ClientCode
 {
-
    public static function businessCode():void
 {
     $obj_send_message = new ExistingClass();
