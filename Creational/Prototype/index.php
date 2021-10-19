@@ -28,7 +28,7 @@ $clone_obj1 = $obj1->clone();
 $clone_obj2 = $obj2->clone();
 
 if($clone_obj1 !== $obj1 && $clone_obj2 !== $obj2)
-    echo "Prototype created successfully";
+    echo "Prototype created successfully!";
 else
-    echo "No prototype created";
+    echo "No prototype created!";
 
