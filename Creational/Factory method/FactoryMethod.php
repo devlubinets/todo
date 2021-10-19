@@ -8,8 +8,8 @@ interface IIcon
 
 abstract  class IconFactoryMethod
 {
-    protected $icon;
-    protected $name;
+    protected string $icon = '';
+    protected string $name = '';
 
     abstract protected function create():IIcon;
 
@@ -59,8 +59,8 @@ class IconVK extends IconFactoryMethod
 
 class CreateIconFB implements IIcon
 {
-    private $name;
-    private $icon;
+    private string $name = '';
+    private string $icon = '';
 
     public function __construct(string $name, string $icon)
     {
@@ -86,8 +86,8 @@ class CreateIconFB implements IIcon
 
 class CreateIconVK implements IIcon
 {
-    private $name;
-    private $icon;
+    private string $name = '';
+    private string $icon = '';
 
     public function __construct(string $name, string $icon)
     {

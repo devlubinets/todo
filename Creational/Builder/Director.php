@@ -9,19 +9,19 @@ class Director
         $this->setBuilder($obj);
     }
 
-    public function setBuilder(IBuilderWebsite $builder)
+    public function setBuilder(IBuilderWebsite $builder):void
     {
         $this->builder = $builder;
     }
 
-    public function lowMoneyWebSite()
+    public function lowMoneyWebSite():void
     {
         $this->builder->createTitle();
 
         $this->builder->getProduct();
     }
 
-    public function manyMoneyWebSite()
+    public function manyMoneyWebSite():void
     {
         $this->builder->createTitle();
         $this->builder->createHead();
