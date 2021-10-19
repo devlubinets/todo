@@ -2,9 +2,9 @@
 
 class ShapeA extends AShape
 {
-    public function __construct($title, $firstName, $mainName, $price)
+    public function __construct(int $x, int $y, string $name, string $property)
     {
-        parent::__construct($title, $firstName, $mainName, $price);
+        parent::__construct($x, $y, $name, $property);
     }
 
     public function clone(): IPrototype

@@ -2,17 +2,16 @@
 
 abstract class AShape implements IPrototype
 {
-    public $x;
-    public $y;
-    public $name;
+    public int $x = 0;
+    public int $y = 0;
+    public string $name = '';
+    protected string $property;
 
-    protected $property;
-
-    public function __construct($a, $b, $c, $d)
+    public function __construct(int $x, int $y, string $name, string $property)
     {
-        $this->x =  $a;
-        $this->y =  $b;
-        $this->name =  $c;
-        $this->property =  $d;
+        $this->x =  $x;
+        $this->y =  $y;
+        $this->name =  $name;
+        $this->property =  $property;
     }
 }
