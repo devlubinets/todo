@@ -1,6 +1,5 @@
 <?php
-require 'Singleton/Singleton.php';
-require 'Singleton/SetStyle.php';
+require 'SetStyle.php';
 
 $singleton_obj = SetStyle::getInstance();
 
@@ -21,5 +20,3 @@ if(SetStyle::test_singleton($obj1,$obj2))
     echo "Даннный объект синглтон";
     else
     echo "Даннный НЕ объект синглтон";
-
-    #dsfdsf
