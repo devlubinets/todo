@@ -2,7 +2,7 @@
 
 class Director
 {
-    public IBuilderWebsite  $builder;
+    private IBuilderWebsite  $builder;
 
     public function __construct(IBuilderWebsite $obj)
     {
@@ -30,6 +30,11 @@ class Director
         $this->builder->getProduct();
     }
 
-
-
+    /**
+     * @return IBuilderWebsite
+     */
+    public function getBuilder(): IBuilderWebsite
+    {
+        return $this->builder;
+    }
 }
