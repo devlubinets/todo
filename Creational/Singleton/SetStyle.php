@@ -3,11 +3,11 @@
 
 class SetStyle
 {
-    protected static ?SetStyle  $instance = null;
+    private static ?SetStyle  $instance = null;
     private string  $background_color = '';
     private string  $main_text = '';
 
-    protected function __construct(string $background_color = 'black', string $main_text = 'AVADA MEDIA') {
+    private function __construct(string $background_color = 'black', string $main_text = 'AVADA MEDIA') {
 
         $this->background_color = $background_color;
         $this->main_text = $main_text;
