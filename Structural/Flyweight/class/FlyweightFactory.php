@@ -7,12 +7,11 @@ class FlyweightFactory
     /**
      * @param array $flyweights
      */
-    public function __construct(array $flyweights)
+    public function __construct(/*array $flyweights*/)
     {
-        foreach ($flyweights as $state) {
-            $this->flyweights[$this->getKey($state)] = new Flyweight($state);
-        }
-        $this->flyweights = $flyweights;
+//        foreach ($flyweights as $state) {
+//            $this->flyweights[$this->getKey($state)] = new Flyweight($state);
+//        }
     }
 
     private function getKey(array $state): string
@@ -34,12 +33,13 @@ class FlyweightFactory
         }
     }
 
-    public function getListFlyweight():string
+    public function getListFlyweight():void
     {
-        foreach($this->flyweights as $flyweight) {
-            echo $flyweight;
-        }
+        $array = $this->flyweights;
 
+        echo '<pre>';
+        print_r($array);
+        echo '</pre>';
     }
 
     public function __toString():string
