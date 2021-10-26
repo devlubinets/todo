@@ -10,50 +10,45 @@ abstract  class IconFactoryMethod
 {
     protected string $icon = '';
     protected string $name = '';
+    protected string $type = '';
+    protected ?IIcon $obj = null;
 
-    abstract protected function create():IIcon;
+    abstract protected function create(string $nameIcon):void;
 
-    public function view() :void
-{
-    $concreate =  $this->create();
-    $concreate->view();
-    $concreate->name();
-}
-
+    abstract public function view() : void;
 }
 
 
-class IconFB extends IconFactoryMethod
+class Icon extends IconFactoryMethod
 {
-
-
-    public function  __construct(string $name = '', string $icon = '')
+    public function  __construct(string $name = '', string $icon = '', string $type = '')
     {
         $this->name = $name;
         $this->icon = $icon;
+        $this->type = $type;
+
+        $this->create($this->type);
     }
 
-    public function create(): IIcon
+    protected function create(string $type): void
     {
-        return new CreateIconFB($this->name,$this->icon);
+        $icon = null;
+
+        switch ($type) {
+            case "vk":  $icon =  new CreateIconFB($this->name,$this->icon); break;
+            case "fb":  $icon =  new CreateIconVK($this->name,$this->icon); break;
+        }
+
+        $this->obj = $icon;
+    }
+
+    public function view(): void
+    {
+        $this->obj->view();
     }
 
 }
 
-class IconVK extends IconFactoryMethod
-{
-    public function  __construct(string $name = '', string $icon = '')
-    {
-        $this->name = $name;
-        $this->icon = $icon;
-    }
-
-    public function create(): IIcon
-    {
-        return new CreateIconVK($this->name,$this->icon);
-    }
-
-}
 
 class CreateIconFB implements IIcon
 {

@@ -9,19 +9,20 @@
 </head>
 <body>
 
-</body>
-</html>
-
 
 <?php
 
 require 'FactoryMethod.php';
 
-$obj1 = new IconFB("FB number one","source/fb.png");
-$obj1->create();
+$obj1 = new Icon("FB number one","source/fb.png", "vk");
 $obj1->view();
 
-$obj2 = new IconVK("VK number one","source/vk.png");
-$obj2->create();
+$obj2 = new Icon("VK number one","source/vk.png", "vk");
 $obj2->view();
 ?>
+
+
+</body>
+</html>
+
+
