@@ -15,7 +15,6 @@ class Proxy implements ServiceInterface
     {
         if($this->checkData($this->data)) {
             echo "Доступ к сервису осуществляется через заместителя  {$this->service}";
-            echo "<br> {$this->operation()} ";
         } else {
             echo "Обновление данных \$data: {$this->data} не актуальны";
             $this->data = $this->service->getData();
@@ -25,7 +24,7 @@ class Proxy implements ServiceInterface
 
     private function checkData($data):bool
     {
-        if ($this->data === $this->service->getData())
+        if ($data === $this->service->getData())
             return true;
         else
             return false;
