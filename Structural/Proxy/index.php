@@ -4,34 +4,14 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
-
-spl_autoload_register(function($class) {
-
-    $fn1 = 'class/' . $class .'.php';
-    $fn2 = 'interface/' . $class . '.php';
-
-    if(file_exists($fn1))
-    {
-        require $fn1;
-        echo '<b>Autoload class: ' . $class . '</b><br>';
-    }
-    else
-        echo '<b>Not autoload class: ' . $class . '.php'. '</b><br>';
+require "class/Autoload.php";
 
 
-    if(file_exists($fn2))
-    {
-        require $fn2;
-        echo '<b>Autoload interface: ' . $class . '</b><br>';
-    }
-    else
-        echo '<b>Not autoload interface: ' . $class . '.php'. '</b><br>';
-
-});
 
 ClientCode::businessCode();
 
 ?>
+
 
 <!doctype html>
 <html lang="en">

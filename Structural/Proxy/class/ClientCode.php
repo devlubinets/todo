@@ -9,8 +9,8 @@ class  ClientCode
 
         $proxy->operation();
 
-        $service->setData("String data: 9909090009990990");
+       # $service->setData("String data: 9909090009990990");
 
-        $proxy->operation();
+       # $proxy->operation();
     }
 }
