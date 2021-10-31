@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-class IteratorReverse implements IteratorInterface, Iterator
+class IteratorNormal implements IteratorInterface, Iterator
 {
 
     public function getNext(): CollectionInterface

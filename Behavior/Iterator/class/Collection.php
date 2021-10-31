@@ -1,17 +1,16 @@
 <?php
+declare(strict_types=1);
 
 class Collection implements CollectionInterface
 {
-    private ?IteratorNormal $iteratorNormal = null;
-    private ?IteratorReverse $iteratorReverse = null;
     private array $collection;
 
-    public function getIteretorNormal(CollectionInterface $col): IteratorInterface
+    public function getIteretorNormal(): IteratorInterface
     {
         return new IteratorNormal($this);
     }
 
-    public function getIteretorReverse(CollectionInterface $col): IteratorInterface
+    public function getIteretorReverse(): IteratorInterface
     {
         return new IteratorReverse($this);
     }
@@ -20,4 +19,13 @@ class Collection implements CollectionInterface
     {
         $this->collection[] = $var;
     }
+
+    /**
+     * @return array
+     */
+    public function getCollection(): array
+    {
+        return $this->collection;
+    }
+
 }

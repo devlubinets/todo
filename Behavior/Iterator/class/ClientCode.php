@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 class  ClientCode
 {
@@ -13,6 +14,9 @@ class  ClientCode
         $collection->add(5);
         $collection->add(6);
 
-        $collection->getIteretorNormal();
+        foreach($collection->getIteretorReverse() as $value) {
+            echo $value;
+        }
+
     }
 }
