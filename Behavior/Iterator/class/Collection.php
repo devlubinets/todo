@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-class Collection implements CollectionInterface
+class Collection implements CollectionInterface, IteratorAggregate
 {
     private array $collection;
 
@@ -24,6 +24,11 @@ class Collection implements CollectionInterface
      * @return array
      */
     public function getCollection(): array
+    {
+        return $this->collection;
+    }
+
+    public function getItems():array
     {
         return $this->collection;
     }

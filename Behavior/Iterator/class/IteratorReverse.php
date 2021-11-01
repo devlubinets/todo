@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-class IteratorReverse implements IteratorInterface, Iterator
+class IteratorReverse implements IteratorInterface, \Iterator
 {
-    private array $collection;
+    private Collection $collection;
     private int $position;
 
     public function __construct(CollectionInterface $collection)
     {
-        $this->collection = $collection->getCollection();
+        $this->collection = $collection;
         $this->position = count($collection->getCollection()) - 1;
     }
 
@@ -28,12 +28,12 @@ class IteratorReverse implements IteratorInterface, Iterator
     }
 
     // Метод должен вернуть значение текущего элемента
-    public function current():int
+    public function current()
     {
-        return $this->collection[$this->position];
+        return $this->collection->getItems()[$this->position];
     }
     // Метод должен вернуть ключ текущего элемента
-    public function key():int
+    public function key()
     {
         return $this->position;
     }
@@ -45,11 +45,11 @@ class IteratorReverse implements IteratorInterface, Iterator
     // Метод должен поставить "указатель" на первый элемент
     public function rewind(): void
     {
-        $this->position = count($this->collection) - 1;
+        $this->position = count($this->collection->getItems()) - 1;
     }
     // Метод должен проверять - не вышел ли указатель за границы?
     public function valid(): bool
     {
-        return count($this->collection) > $this->position ? false : true;
+        return count($this->collection->getItems()) > $this->position ? false : true;
     }
 }
