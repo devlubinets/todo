@@ -14,9 +14,16 @@ class  ClientCode
         $collection->add(5);
         $collection->add(6);
 
-        foreach($collection->getIteretorReverse() as $value) {
+        $collection->selectIterator("reverse");
+        foreach($collection->getIterator() as $value) {
             echo $value;
         }
 
+        echo '<br>';
+
+        $collection->selectIterator("normal");
+        foreach($collection->getIterator() as $value) {
+            echo $value;
+        }
     }
 }

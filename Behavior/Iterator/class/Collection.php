@@ -1,16 +1,48 @@
 <?php
 declare(strict_types=1);
 
-class Collection implements CollectionInterface, IteratorAggregate
+class Collection implements IteratorAggregate
 {
     private array $collection;
+    private string $nameIterator;
+    private array $iterators = ["normal", "reverse"];
 
-    public function getIteretorNormal(): IteratorInterface
+    public function selectIterator(string $nameIterator):void
+    {
+        foreach ($this->iterators as $value) {
+            switch ($value)
+            {
+                case "normal":
+                    $this->nameIterator = $nameIterator;
+                    break;
+                case "reverse":
+                    $this->nameIterator = $nameIterator;
+                    break;
+            }
+        }
+    }
+
+    public function getIterator():Iterator
+    {
+        $iterator =  0;
+        switch ($this->nameIterator) {
+            case "normal":
+                $iterator = $this->getIteretorNormal();
+                break;
+            case "reverse":
+                $iterator = $this->getIteretorReverse();
+                break;
+        }
+
+        return $iterator;
+    }
+
+    private function getIteretorNormal(): Iterator
     {
         return new IteratorNormal($this);
     }
 
-    public function getIteretorReverse(): IteratorInterface
+    private function getIteretorReverse(): Iterator
     {
         return new IteratorReverse($this);
     }
@@ -20,17 +52,13 @@ class Collection implements CollectionInterface, IteratorAggregate
         $this->collection[] = $var;
     }
 
-    /**
-     * @return array
-     */
-    public function getCollection(): array
-    {
-        return $this->collection;
-    }
-
     public function getItems():array
     {
         return $this->collection;
     }
 
+    public function getCollection():array
+    {
+        return $this->collection;
+    }
 }

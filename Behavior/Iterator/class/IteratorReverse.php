@@ -1,30 +1,15 @@
 <?php
 declare(strict_types=1);
 
-class IteratorReverse implements IteratorInterface, \Iterator
+class IteratorReverse implements \Iterator
 {
-    private Collection $collection;
+    private IteratorAggregate $collection;
     private int $position;
 
-    public function __construct(CollectionInterface $collection)
+    public function __construct(IteratorAggregate $collection)
     {
         $this->collection = $collection;
         $this->position = count($collection->getCollection()) - 1;
-    }
-
-    public function getNext(): CollectionInterface
-    {
-        // TODO: Implement getNext() method.
-    }
-
-    public function getAll(): CollectionInterface
-    {
-        // TODO: Implement getAll() method.
-    }
-
-    public function getOne(): CollectionInterface
-    {
-        // TODO: Implement getOne() method.
     }
 
     // Метод должен вернуть значение текущего элемента
@@ -50,6 +35,6 @@ class IteratorReverse implements IteratorInterface, \Iterator
     // Метод должен проверять - не вышел ли указатель за границы?
     public function valid(): bool
     {
-        return count($this->collection->getItems()) > $this->position ? false : true;
+        return isset($this->collection->getItems()[$this->position]);
     }
 }
