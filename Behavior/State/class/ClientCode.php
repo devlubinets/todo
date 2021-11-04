@@ -5,6 +5,8 @@ class  ClientCode
 {
     public static function businessCode():void
     {
-
+        $article = new Article(new StateDraft());
+        $article->publish();
+        $article->publish();
     }
 }
