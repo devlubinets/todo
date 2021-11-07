@@ -26,7 +26,7 @@ abstract class SumOperation
 
     final protected function initStep():void
     {
-        echo "<br>Welcome to:" . __CLASS__;
+        echo "<br>Welcome to:" . static::class;
     }
 
     final protected function showResult():void
