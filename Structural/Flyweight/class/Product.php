@@ -2,13 +2,13 @@
 
 class Product
 {
-    private string $name_product;
+    private int $id;
     private Flyweight $shared_state;
 
-    public function __construct(string $name_product = "", Flyweight $shared_state = null)
+    public function __construct(int $id, Flyweight $shared_state)
     {
-        $this->name_product = $name_product;
-        $this->shared_state = new Flyweight();
+        $this->name_product = $id;
+        $this->shared_state = $shared_state;
     }
 
 }

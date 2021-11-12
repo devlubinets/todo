@@ -15,10 +15,11 @@ class FlyweightFactory
         $state = $this->getKey($sharedState);
 
         if(isset($this->flyweights[$state])) {
-            echo "Flyweight object is ready!";
+            echo "<br><div class='cls1'>Flyweight object: ${sharedState['0']} is ready!</div>";
             return $this->flyweights[$state];
         } else {
             $this->flyweights[$state] = new Flyweight($sharedState);
+            echo "<br><div class='cls1'>Flyweight object: ${sharedState['0']} creat!</div>";
             return $this->flyweights[$state];
         }
     }
