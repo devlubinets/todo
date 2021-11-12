@@ -4,16 +4,6 @@ class FlyweightFactory
 {
     private $flyweights = [];
 
-    /**
-     * @param array $flyweights
-     */
-    public function __construct(/*array $flyweights*/)
-    {
-//        foreach ($flyweights as $state) {
-//            $this->flyweights[$this->getKey($state)] = new Flyweight($state);
-//        }
-    }
-
     private function getKey(array $state): string
     {
         ksort($state);
