@@ -15,12 +15,12 @@ class Product
         $this->price = $price;
     }
 
-    public function saveState():MementoInterface
+    public function saveState():Memento
     {
         return new Memento($this->name, $this->price);
     }
 
-    public function undoState(MementoInterface $memento):void
+    public function undoState(Memento $memento):void
     {
         $this->name = $memento->getName();
         $this->price = $memento->getPrice();

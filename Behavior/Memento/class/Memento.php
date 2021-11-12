@@ -1,6 +1,6 @@
 <?php
 
-class Memento implements MementoInterface
+class Memento
 {
     private string $name;
     private float $price;
@@ -32,4 +32,14 @@ class Memento implements MementoInterface
     {
         return $this->price;
     }
+
+    /**
+     * @return false|string
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+
 }

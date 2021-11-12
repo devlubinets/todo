@@ -22,8 +22,17 @@ class Store
 
     public function restore():void
     {
+        if (!count($this->memento)) {
+            return;
+        }
+
         $lastState = array_pop($this->memento);
+
+        try {
         $this->product->undoState($lastState);
+        } catch (\Exception $e) {
+            $this->restore();
+        }
     }
 
     public function showActualInfo():string
