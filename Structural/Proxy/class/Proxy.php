@@ -14,11 +14,12 @@ class Proxy implements ServiceInterface
     public function operation():void
     {
         if($this->checkData($this->data)) {
-            echo "Доступ к сервису осуществляется через заместителя  {$this->service}";
+            echo "<br>Доступ к сервису осуществляется через заместителя  " . get_class($this->service);
+            echo "<br>Данные сервиса: $this->data";
         } else {
-            echo "Обновление данных \$data: {$this->data} не актуальны";
+            echo "<br>Обновление данных \$data: {$this->data} не актуальны";
             $this->data = $this->service->getData();
-            echo "Данные обновленны \$data: {$this->data}";
+            echo "<br>Данные обновленны \$data: {$this->data}";
         }
     }
 

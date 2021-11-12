@@ -11,12 +11,7 @@ class Service implements ServiceInterface
 
     public function operation():void
     {
-        echo "Service operation works with data: {$this->data}";
-    }
-
-    public function __toString():string
-    {
-        return "I'm Service";
+        echo "<br>Данные сервиса:{$this->data}";
     }
 
     /**
