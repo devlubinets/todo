@@ -17,17 +17,17 @@ class Subject
     public function subscribe(SubscriberInterface $subscriber):void
     {
         $this->subscribers[] = $subscriber;
-        $name = $subscriber->getName();
 
+        $name = $subscriber->getName();
         echo "<br><div class='cls1'>Новый подписчик $name подписался на издателя</div>";
     }
 
     public function unsubscribe(SubscriberInterface $subscriber):void
     {
         $i = array_search($subscriber, $this->subscribers);
+
         $name = $subscriber->getName();
         unset($this->subscribers[$i]);
-
         echo "<br><div class='cls1'>Подписчик $name отписался от издателя</div>";
     }
 
