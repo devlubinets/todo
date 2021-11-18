@@ -1,9 +1,9 @@
 <?php
 
-use userpanel\engine\dB;
+use userpanel\engine\Db;
 
-require_once "vendor/autoload.php";
-
+require_once "../vendor/autoload.php";
+require_once "../engine/Db.php";
 const HOST = 'localhost'; //сервер
 const USER = 'root'; //пользователь
 const PASS = '12345678Ee!!'; //пароль
