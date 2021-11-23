@@ -32,9 +32,4 @@ class FlyweightFactory
         print_r($array);
         echo '</pre>';
     }
-
-    public function __toString():string
-    {
-        return "Hi, I'm flyweight factory object!";
-    }
 }
