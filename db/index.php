@@ -11,7 +11,10 @@ const PASS = '12345678Ee!'; //пароль
 const DBNAME = 'shop'; //база
 
 $test = Db::getInstance();
-$test->query('user', 'num_goods');
+
+#SELECT
+$test->sqlQuery('SELECT num_goods FROM user');
+
 
 
 

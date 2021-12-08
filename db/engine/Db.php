@@ -29,53 +29,14 @@ class Db
             return self::$instance;
     }
 
-    public function create()
+    public function sqlQuery(string $sql)
     {
-
-    }
-
-    public function query(string $table, string $col)
-    {
-        $stmt = $this->pdo->prepare("USE shop; SELECT $col FROM {$table};");
-        $stmt->execute(); //array($column, $tbname)
-
-        while ($result = $stmt->fetch(PDO::FETCH_OBJ)) {
+        $stmt = $this->pdo->prepare($sql);
+        if ($stmt->execute()) {
+            while ($result = $stmt->fetch(PDO::FETCH_LAZY)) {
             echo '<br>'.$result->name;
         }
-    }
-
-    public function read(string $tbname = '', string $column = '')
-    {
-        if($tbname === '' || $column === '') {
-            //TODO надо логировать такие ситуации
-            return;
-        }
-//        $stmt = $this->pdo->prepare('SELECT ? FROM ? ;');
-        $stmt = $this->pdo->prepare('SELECT name FROM users_1;');
-        $stmt->execute(); //array($column, $tbname)
-
-        while ($result = $stmt->fetch(PDO::FETCH_OBJ)) {
-            echo '<br>'.$result->name;
         }
     }
 
-    public function update()
-    {
-
-    }
-
-    public function delete()
-    {
-
-    }
-
-    private function __clone()
-    {
-
-    }
-
-    private function __wakeup()
-    {
-
-    }
 }
