@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buyer;
 use Illuminate\Http\Request;
 use \PDO;
 
@@ -9,7 +10,7 @@ class DataBaseController extends Controller
 {
     public function orm()
     {
-
+       var_dump(Buyer::all());
     }
 
     public function sql()
@@ -31,9 +32,12 @@ class DataBaseController extends Controller
 
         #1.SQL запрос Клиент который купил больше всего товаров
      #  $stmt1 = $pdo->query('SELECT user_order FROM orders WHERE MAX(total_price_order)');
-        $stmt1 = $pdo->query('SELECT user_order FROM orders');
+        $stmt1 = $pdo->query('SELECT * FROM orders');
         $obj1 =  $stmt1->fetch(PDO::FETCH_LAZY);
-        echo $obj1->user_order;
+        while ($row = $stmt1->fetch(PDO::FETCH_LAZY))
+        {
+            echo '<br>'.$row->id . " = " . $row->shopcart_order;
+        }
 
 
 //        #2.Top 10 самых дорогих товаров
