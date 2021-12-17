@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use function GuzzleHttp\Promise\all;
 
 class DashboardController extends Controller
 {
     public function showPrivateItems()
     {
-        return  view('dashboard',['items' => Item::where('executor','=',2)->get(), 'assigned_items' => Item::where('leader','=',2)->get()]);
+        $user = Auth::user()->name;
+        return  view('dashboard',['items' => Item::where('executor','=',$user)->get(), 'assigned_items' => Item::where('leader','!=',$user)->get()]);
     }
 
     public function addTask(Request $req)
@@ -25,7 +28,7 @@ class DashboardController extends Controller
 
         #Вместо перезагрузки страницы
         //TODO потом лучше это заменить на js код авто обновления
-        return redirect()->route('/');
+        return redirect()->route('dashboard');
     }
 
     public function deleleTask($id)
@@ -36,7 +39,26 @@ class DashboardController extends Controller
     }
 
 
+    public function editTask($id)
+    {
+       $model = Item::all()->find($id);
 
-    //TODO отметка что задача выполненна
+        return view('components.edit-task',['item' => $model]);
+
+    }
+
+    public function updateTask($id, Request $req)
+    {
+        $model = Item::all()->find($id);
+
+        $model->desc = $req->input('desc');
+        $model->executor = $req->input('executor');
+        $model->visibility = $req->input('visibility');
+        $model->leader = $req->input('leader');
+
+        $model->save();
+
+        return redirect()->route('dashboard')->with('success','Task has been update');
+    }
 
 }
