@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ItemController;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +15,17 @@ use App\Http\Controllers\ItemController;
 */
 
 #Начальный экран
-Route::get('/', [ItemController::class,'showPublicItems']);
+Route::get('/', [WelcomeController::class,'showPublicItems'])->name('welcome');
+
+Route::get('/delete-task/{id}',[DashboardController::class,'deleleTask'])->name('delete-task');
+Route::get('/edit-task/{id}/edite',[DashboardController::class,'editTask'])->name('edit-task');
+Route::post('/edit-task/{id}/edite',[DashboardController::class,'updateTask'])->name('update-task');
+Route::post('/add-task', [DashboardController::class,'addTask'])->name('add-task');
+
 
 #Аутентификация
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class,'showPrivateItems'])
+    ->middleware(['auth'])
+    ->name('dashboard');
 
 require __DIR__.'/auth.php';
