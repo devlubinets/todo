@@ -9,6 +9,6 @@ class WelcomeController extends Controller
 {
     public function showPublicItems()
     {
-       return  view('welcome',['items' => Item::where('visibility','=',1)->get()]);
+       return  view('welcome',['items' => Item::where('visibility','=','public')->get()]);
     }
 }
