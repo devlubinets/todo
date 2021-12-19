@@ -15,67 +15,27 @@ class NumeralConverterTest extends TestCase
         return [
             [2,'II'],
             [3,'III'],
-            [1,'11']
+            [1,'I'],
+            [4,'IV'],
+            [5,'V'],
+            [6,'VI'],
+            [7,'VII'],
+            [8,'VIII'],
+            [9,'IX'],
         ];
-    }
-    /**
-     * @test
-     */
-    public function converts1ToRomanNumeral():void
-    {
-        //Подготовка
-        $nc = new NumeralConverter();
-        $input = 1;
-        $output = 'I';
-
-        //Действие
-        $result = $nc->arabicToRoman($input);
-
-        //Проверка
-        $this->assertEquals($output, $result);
-    }
-
-    /**
-     * @test
-     */
-    public function converts1ToRomanNumeral2():void
-    {
-        //Подготовка
-        $nc = new NumeralConverter();
-        $input = 2;
-        $output = 'II';
-
-        //Действие
-        $result = $nc->arabicToRoman($input);
-
-        //Проверка
-        $this->assertEquals($output, $result);
-    }
-
-    /**
-     * @test
-     */
-    public function converts1ToRomanNumeral3():void
-    {
-        //Подготовка
-        $nc = new NumeralConverter();
-        $input = 3;
-        $output = 'III';
-
-        //Действие
-        $result = $nc->arabicToRoman($input);
-
-        //Проверка
-        $this->assertEquals($output, $result);
     }
 
   /**
    * @dataProvider dataSetForTest
-  * @test
-  */
+   * @test
+   */
     public function convert2and3ToRomanNumeral(int $value, string $expected)
     {
         //Подготовка
+        #Обработка неверных входных значений
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('This method converts positive integer only');
+        #создание зависимости для тестирования связанной с ней поведения
         $nc = new NumeralConverter();
 
         //Действие
@@ -86,18 +46,6 @@ class NumeralConverterTest extends TestCase
 
     }
 
-    public function badDataSet()
-    {
-        return [
-            [4,'IV'],
-            [5,'V'],
-            [9,'IX']
-        ];
-    }
 
-    /**
-     * @dataProvider badDataSet
-     * @test
-     */
 
 }
